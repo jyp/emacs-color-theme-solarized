@@ -103,6 +103,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
           (blue        (find-color 'blue))
           (cyan        (find-color 'cyan))
           (green       (find-color 'green))
+          (accent-bg-secondary       "#D3EDEB")
+          (accent-bg-primary         "#EDD3E0")
           (bold        (if solarized-bold 'bold 'normal))
           (bright-bold (if solarized-bold 'normal 'bold))
           (underline   (if solarized-underline t nil))

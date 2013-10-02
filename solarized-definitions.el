@@ -103,13 +103,21 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
           (blue        (find-color 'blue))
           (cyan        (find-color 'cyan))
           (green       (find-color 'green))
-          (accent-bg-secondary       "#D3EDEB")
-          (accent-bg-primary         "#EDD3E0")
+          (yellow-highlight       "#fae705")  ; D7F705
+          (cyan-highlight         "#05FAE7")
+          (magenta-highlight      "#e705fa") ; f70576
+          (yellow-shadow          "#434D02") 
+          (cyan-shadow            "#02434D")
+          (magenta-shadow         "#4D0243")
           (bold        (if solarized-bold 'bold 'normal))
           (bright-bold (if solarized-bold 'normal 'bold))
           (underline   (if solarized-underline t nil))
           (opt-under   nil)
           (italic      (if solarized-italic 'italic 'normal)))
+      (when (eq 'dark mode)
+        (rotatef yellow-shadow yellow-highlight)
+        (rotatef cyan-shadow cyan-highlight)
+        (rotatef magenta-shadow magenta-highlight))
       (when (eq 'light mode)
         (rotatef base03 base3)
         (rotatef base02 base2)
@@ -146,6 +154,11 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
               (bg-blue `(:background ,blue))
               (bg-cyan `(:background ,cyan))
               
+              (bg-cyan-highlight `(:background ,cyan-highlight))
+              (bg-magenta-highlight `(:background ,magenta-highlight))
+              (bg-yellow-highlight `(:background ,yellow-highlight))
+              
+
               (fg-base03 `(:foreground ,base03))
               (fg-base02 `(:foreground ,base02))
               (fg-base01 `(:foreground ,base01))
@@ -346,8 +359,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (speedbar-separator-face ((t (,@fmt-stnd))))
              (speedbar-tag-face ((t (,@fmt-none ,@fg-blue))))
              ;; show-paren - MatchParen
-             (show-paren-match ((t (,@fmt-bold ,@fg-cyan ,@bg-base02))))
-             (show-paren-mismatch ((t (,@fmt-bold ,@fg-red ,@bg-base01))))
+             (show-paren-match ((t (,@bg-cyan-highlight))))
+             (show-paren-mismatch ((t (,@bg-magenta-highlight))))
              ;; widgets
              (widget-field
               ((t (,@fg-base1 ,@bg-base02 :box (:line-width 1)
@@ -359,9 +372,9 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
 	     (bm-fringe-face ((t (,@bg-orange ,@fg-base03))))
 	     (bm-fringe-persistent-face ((t (,@bg-blue ,@fg-base03))))
              ;; Flymake
-             (flymake-errline ((t (,@fmt-revr ,@fg-red ,@bg-back)))) ; ErrorMsg
+             (flymake-errline ((t (,@bg-magenta-highlight)))) ; ErrorMsg
              (flymake-warnline ; WarningMsg
-              ((t (,@fmt-bold ,@fg-red ,@bg-back))))
+              ((t (,@bg-cyan-highlight))))
              ;; column-marker
              (column-marker-1 ((t (,@bg-base01))))
              (column-marker-2 ((t (,@bg-cyan))))

@@ -103,12 +103,18 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
           (blue        (find-color 'blue))
           (cyan        (find-color 'cyan))
           (green       (find-color 'green))
-          (yellow-highlight       "#fae705")  ; D7F705
-          (cyan-highlight         "#05FAE7")
-          (magenta-highlight      "#e705fa") ; f70576
-          (yellow-shadow          "#434D02") 
-          (cyan-shadow            "#02434D")
-          (magenta-shadow         "#4D0243")
+          ;; shadow : B = 36; S = 90
+          ;; highlight : B = 93; S = 25
+          (yellow-highlight       "#EDEDB2")  ;; the yellow hue is adjusted to 60 for higher contrast  
+          (yellow-shadow          "#424207") 
+          (magenta-highlight      "#EDB2CF")
+          (magenta-shadow         "#420724")
+          (red-highlight          "#EDB2CF")
+          (red-shadow             "#420807")
+          (blue-highlight         "#EDB2CF")
+          (blue-shadow            "#072942")
+          (cyan-highlight         "#B2EDE8")  
+          (cyan-shadow            "#07423d")
           (bold        (if solarized-bold 'bold 'normal))
           (bright-bold (if solarized-bold 'normal 'bold))
           (underline   (if solarized-underline t nil))
@@ -117,6 +123,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
       (when (eq 'dark mode)
         (rotatef yellow-shadow yellow-highlight)
         (rotatef cyan-shadow cyan-highlight)
+        (rotatef blue-shadow blue-highlight)
+        (rotatef red-shadow red-highlight)
         (rotatef magenta-shadow magenta-highlight))
       (when (eq 'light mode)
         (rotatef base03 base3)
@@ -155,7 +163,9 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
               (bg-cyan `(:background ,cyan))
               
               (bg-cyan-highlight `(:background ,cyan-highlight))
+              (bg-blue-highlight `(:background ,blue-highlight))
               (bg-magenta-highlight `(:background ,magenta-highlight))
+              (bg-red-highlight `(:background ,red-highlight))
               (bg-yellow-highlight `(:background ,yellow-highlight))
               
 
@@ -372,9 +382,9 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
 	     (bm-fringe-face ((t (,@bg-orange ,@fg-base03))))
 	     (bm-fringe-persistent-face ((t (,@bg-blue ,@fg-base03))))
              ;; Flymake
-             (flymake-errline ((t (,@bg-magenta-highlight)))) ; ErrorMsg
+             (flymake-errline ((t (,@bg-red-highlight)))) ; ErrorMsg
              (flymake-warnline ; WarningMsg
-              ((t (,@bg-cyan-highlight))))
+              ((t (,@bg-blue-highlight))))
              ;; column-marker
              (column-marker-1 ((t (,@bg-base01))))
              (column-marker-2 ((t (,@bg-cyan))))

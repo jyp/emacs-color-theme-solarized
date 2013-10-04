@@ -111,7 +111,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
           (magenta-shadow         "#420724")
           (red-highlight          "#EDB2CF")
           (red-shadow             "#420807")
-          (blue-highlight         "#EDB2CF")
+          (blue-highlight         "#B2D4ED")
           (blue-shadow            "#072942")
           (cyan-highlight         "#B2EDE8")  
           (cyan-shadow            "#07423d")

@@ -396,6 +396,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (flymake-errline ((t (,@bg-red-highlight)))) ; ErrorMsg
              (flymake-warnline ; WarningMsg
               ((t (,@bg-blue-highlight))))
+             ;; hi-lock
+             (hi-yellow ((t (,@bg-yellow-highlight)))) ; ErrorMsg
              ;; column-marker
              (column-marker-1 ((t (,@bg-base01))))
              (column-marker-2 ((t (,@bg-cyan))))
@@ -562,6 +564,9 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              ;;flyspell
              (flyspell-incorrect ((t (,@fg-red))))
              (flyspell-duplicate ((t (,@fg-yellow))))
+	     ;; ace-jum
+             (ace-jump-face-foreground ((t (,@fg-red))))
+             (ace-jump-face-background ((t (:foreground ,base02))))
 	     ;;ansi-term
 	     (term-color-black ((t ( ,@fg-base02))))
 	     (term-color-red ((t ( ,@fg-red))))
@@ -571,7 +576,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
 	     (term-color-magenta ((t ( ,@fg-magenta))))
 	     (term-color-cyan ((t ( ,@fg-cyan))))
 	     (term-color-white ((t ( ,@fg-base00)))))
-
+            
             ((foreground-color . ,(when (<= 16 (display-color-cells)) base0))
              (background-color . ,back)
              (background-mode . ,mode)

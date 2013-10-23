@@ -116,6 +116,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
           ;; highlight : B = 93; S = 25
           (yellow-highlight       "#FFF973")
           (yellow-shadow          "#434207")
+          (orange-highlight       "#FFBE81")
+          (orange-shadow          "#502600")
           (magenta-highlight      "#EDB2CF")
           (magenta-shadow         "#420724")
           (red-highlight          "#EDB2CF")
@@ -126,6 +128,9 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
           (cyan-shadow            "#07423d")
           (green-highlight        "#D4FFE2")
           (green-shadow           "#074239")
+          ;; (blue-shadow) 000071
+          ;; (red-shadow) 5E0000
+          ;; (green-shadow) 004100
           (bold        (if solarized-bold 'bold 'normal))
           (bright-bold (if solarized-bold 'normal 'bold))
           (underline   (if solarized-underline t nil))
@@ -133,6 +138,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
           (italic      (if solarized-italic 'italic 'normal)))
       (when (eq 'dark mode)
         (rotatef yellow-shadow yellow-highlight)
+        (rotatef orange-shadow orange-highlight)
         (rotatef cyan-shadow cyan-highlight)
         (rotatef blue-shadow blue-highlight)
         (rotatef red-shadow red-highlight)
@@ -178,6 +184,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
               (bg-blue-highlight `(:background ,blue-highlight))
               (bg-magenta-highlight `(:background ,magenta-highlight))
               (bg-red-highlight `(:background ,red-highlight))
+              (bg-orange-highlight `(:background ,orange-highlight))
               (bg-yellow-highlight `(:background ,yellow-highlight))
               (bg-green-highlight `(:background ,green-highlight))
 
@@ -219,7 +226,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
           `((;; basic
              (default ((t (,@fg-base0 ,@bg-back)))) ; Normal
              (cursor ((t (,@fg-base03 ,@bg-base0)))) ; Cursor
-             (error ((t (,@fmt-bold ,@fg-red)))) ; Error
+             (error ((t (,@fg-red)))) ; Error
+             (warning ((t (,@fg-orange)))) ; Warning
              (escape-glyph-face ((t (,@fg-red))))
              (fringe ((t (,@fg-base01 ,@bg-base02))))
              (linum ((t (,@fg-base01 ,@bg-base02))))
@@ -401,9 +409,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
 	     (bm-fringe-face ((t (,@bg-orange ,@fg-base03))))
 	     (bm-fringe-persistent-face ((t (,@bg-blue ,@fg-base03))))
              ;; Flymake
-             (flymake-errline ((t (,@bg-red-highlight)))) ; ErrorMsg
-             (flymake-warnline ; WarningMsg
-              ((t (,@bg-blue-highlight))))
+             (flymake-errline ((t (:inherit nil ,@bg-red-highlight)))) ; ErrorMsg
+             (flymake-warnline ((t (:inherit nil ,@bg-blue-highlight))))  ; WarningMsg
              ;; hi-lock
              (hi-yellow ((t (,@bg-yellow-highlight)))) ; ErrorMsg
              ;; column-marker

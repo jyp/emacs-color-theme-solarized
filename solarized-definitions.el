@@ -217,8 +217,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
           `((;; basic
              (default ((t (,@fg-base0 ,@bg-back)))) ; Normal
              (cursor ((t (,@fg-base03 ,@bg-base0)))) ; Cursor
-             (error ((t (,@bg-red-highlight)))) ; Warning
-             (warning ((t (,@bg-orange-highlight)))) ; Warning
+             (error ((t (,@fg-red)))) ; Error
+             (warning ((t (,@fg-orange)))) ; Warning
              (escape-glyph-face ((t (,@fg-red))))
              (fringe ((t (,@fg-base01 ,@bg-base02))))
              (linum ((t (,@fg-base01 ,@bg-base02))))
@@ -396,8 +396,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
 	     (bm-fringe-face ((t (,@bg-orange ,@fg-base03))))
 	     (bm-fringe-persistent-face ((t (,@bg-blue ,@fg-base03))))
              ;; Flymake
-             ;; (flymake-errline ((t (,@bg-red-highlight)))) ; ErrorMsg
-             ;; (flymake-warnline ((t (,@bg-blue-highlight))))  ; WarningMsg
+             (flymake-errline ((t (:inherit nil ,@bg-red-highlight)))) ; ErrorMsg
+             (flymake-warnline ((t (:inherit nil ,@bg-blue-highlight))))  ; WarningMsg
              ;; hi-lock
              (hi-yellow ((t (,@bg-yellow-highlight)))) ; ErrorMsg
              ;; column-marker

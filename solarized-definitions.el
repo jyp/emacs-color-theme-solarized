@@ -114,16 +114,18 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
           (green       (find-color 'green))
           ;; shadow : B = 36; S = 90
           ;; highlight : B = 93; S = 25
-          (yellow-highlight       "#EDEDB2")  ;; the yellow hue is adjusted to 60 for higher contrast  
-          (yellow-shadow          "#424207") 
+          (yellow-highlight       "#FFF973")
+          (yellow-shadow          "#434207")
           (magenta-highlight      "#EDB2CF")
           (magenta-shadow         "#420724")
           (red-highlight          "#EDB2CF")
           (red-shadow             "#420807")
           (blue-highlight         "#B2D4ED")
           (blue-shadow            "#072942")
-          (cyan-highlight         "#B2EDE8")  
+          (cyan-highlight         "#B2EDE8")
           (cyan-shadow            "#07423d")
+          (green-highlight        "#D4FFE2")
+          (green-shadow           "#074239")
           (bold        (if solarized-bold 'bold 'normal))
           (bright-bold (if solarized-bold 'normal 'bold))
           (underline   (if solarized-underline t nil))
@@ -134,6 +136,7 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
         (rotatef cyan-shadow cyan-highlight)
         (rotatef blue-shadow blue-highlight)
         (rotatef red-shadow red-highlight)
+        (rotatef green-shadow green-highlight)
         (rotatef magenta-shadow magenta-highlight))
       (when (eq 'light mode)
         (rotatef base03 base3)
@@ -170,11 +173,13 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
               (bg-violet `(:background ,violet))
               (bg-blue `(:background ,blue))
               (bg-cyan `(:background ,cyan))
+
               (bg-cyan-highlight `(:background ,cyan-highlight))
               (bg-blue-highlight `(:background ,blue-highlight))
               (bg-magenta-highlight `(:background ,magenta-highlight))
               (bg-red-highlight `(:background ,red-highlight))
               (bg-yellow-highlight `(:background ,yellow-highlight))
+              (bg-green-highlight `(:background ,green-highlight))
 
               (fg-base03 `(:foreground ,base03))
               (fg-base02 `(:foreground ,base02))
@@ -295,6 +300,8 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (ido-only-match ((t (,@fg-green))))
              (ido-subdir ((t (,@fg-blue))))
              (ido-first-match ((t (,@fmt-bold ,@fg-green))))
+             ;; helm
+             (helm-selection-line ((t (,@bg-green-highlight))))
              ;; emacs-wiki
              (emacs-wiki-bad-link-face ((t (,@fmt-undr ,@fg-red))))
              (emacs-wiki-link-face ((t (,@fmt-undr ,@fg-blue))))

@@ -309,7 +309,9 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (ido-subdir ((t (,@fg-blue))))
              (ido-first-match ((t (,@fmt-bold ,@fg-green))))
              ;; helm
+             (helm-selection ((t (,@bg-green-highlight))))
              (helm-selection-line ((t (,@bg-green-highlight))))
+             (helm-source-header ((t (,@fg-base00 ,@bg-blue-highlight :underline (:color foreground-color :style wave) :weight bold))))
              ;; emacs-wiki
              (emacs-wiki-bad-link-face ((t (,@fmt-undr ,@fg-red))))
              (emacs-wiki-link-face ((t (,@fmt-undr ,@fg-blue))))

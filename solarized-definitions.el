@@ -407,6 +407,19 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
 	     ;; ace-jump-mode
 	     (ace-jump-face-background ((t (,@fmt-none ,@fg-base01))))
 	     (ace-jump-face-foreground ((t (,@fmt-bold ,@fg-red))))
+             ;; agda
+             (agda2-highlight-keyword-face ((t (,@fg-orange))))
+             (agda2-highlight-string-face ((t (,@fg-cyan))))
+             (agda2-highlight-number-face ((t (,@fg-violet))))
+             (agda2-highlight-symbol-face ((t (,@fg-base1))))
+             (agda2-highlight-primitive-type-face ((t (,@fg-blue))))
+             (agda2-highlight-inductive-constructor-face ((t (,@fg-green))))
+             (agda2-highlight-datatype-face ((t (,@fg-blue))))
+             (agda2-highlight-field-face ((t (,@fg-red))))
+             (agda2-highlight-function-face ((t (,@fg-blue))))
+             (agda2-highlight-module-face ((t (,@fg-violet))))
+             (agda2-highlight-record-face ((t (,@fg-blue))))
+             (ugda2-highlight-postulate-face ((t (,@fg-violet))))
 	     ;; bm visual bookmarks
 	     (bm-fringe-face ((t (,@bg-orange ,@fg-base03))))
 	     (bm-fringe-persistent-face ((t (,@bg-blue ,@fg-base03))))

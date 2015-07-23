@@ -419,7 +419,13 @@ the \"Gen RGB\" column in solarized-definitions.el to improve them further."
              (agda2-highlight-function-face ((t (,@fg-blue))))
              (agda2-highlight-module-face ((t (,@fg-violet))))
              (agda2-highlight-record-face ((t (,@fg-blue))))
-             (ugda2-highlight-postulate-face ((t (,@fg-violet))))
+             (agda2-highlight-postulate-face ((t (,@fg-violet))))
+             ;; avy
+             (avy-background-face ((t (,@fg-base0))))
+             (avy-lead-face ((t (,@fg-red))))
+             (avy-lead-face-0 ((t (,@fg-blue))))
+             (avy-lead-face-1 ((t (,@fg-magenta))))
+             (avy-lead-face-2 ((t (,@fg-green))))
 	     ;; bm visual bookmarks
 	     (bm-fringe-face ((t (,@bg-orange ,@fg-base03))))
 	     (bm-fringe-persistent-face ((t (,@bg-blue ,@fg-base03))))
